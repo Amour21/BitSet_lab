@@ -5,3 +5,5 @@ file(GLOB srcs "*.cpp")
 
 add_library(${target} STATIC ${srcs} ${hdrs})
 target_link_libraries(${target} ${LIBRARY_DEPS})
+add_executable(set_app tbitfield.cpp)   # main.cpp должен быть в src или укажи путь
+target_link_libraries(set_app PRIVATE ${MP2_LIBRARY})
