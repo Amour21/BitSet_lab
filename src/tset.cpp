@@ -13,8 +13,8 @@ TSet::TSet(int mp) : BitField(mp)
 }
 
 // конструктор копирования
-TSet::TSet(const TSet &s) : BitField(s.BitField)
-{ 
+TSet::TSet(const TSet& s) : BitField(s.BitField)
+{
     MaxPower = s.MaxPower;
 }
 
@@ -51,7 +51,7 @@ void TSet::DelElem(const int Elem) // исключение элемента мн
 
 // теоретико-множественные операции
 
-TSet& TSet::operator=(const TSet &s) // присваивание
+TSet& TSet::operator=(const TSet& s) // присваивание
 {
     if (this != &s)
     {
@@ -61,17 +61,17 @@ TSet& TSet::operator=(const TSet &s) // присваивание
     return *this;
 }
 
-int TSet::operator==(const TSet &s) const // сравнение
+int TSet::operator==(const TSet& s) const // сравнение
 {
     return (BitField == s.BitField);
 }
 
-int TSet::operator!=(const TSet &s) const // сравнение
+int TSet::operator!=(const TSet& s) const // сравнение
 {
     return (BitField != s.BitField);
 }
 
-TSet TSet::operator+(const TSet &s) // объединение
+TSet TSet::operator+(const TSet& s) // объединение
 {
     TSet  SetTmp(BitField | s.BitField);
     return SetTmp;
@@ -91,7 +91,7 @@ TSet TSet::operator-(const int Elem) // разность с элементом
     return SetTmp;
 }
 
-TSet TSet::operator*(const TSet &s) // пересечение
+TSet TSet::operator*(const TSet& s) // пересечение
 {
     TSet SetTmp(BitField & s.BitField);
     return SetTmp;
@@ -105,14 +105,14 @@ TSet TSet::operator~(void) // дополнение
 
 // перегрузка ввода/вывода
 
-istream &operator>>(istream &istr, TSet &s) // ввод
+istream& operator>>(istream& istr, TSet& s) // ввод
 {
     istr >> s.BitField;
     s.MaxPower = s.BitField.GetLength();
     return istr;
 }
 
-ostream& operator<<(ostream &ostr, const TSet &s) // вывод
+ostream& operator<<(ostream& ostr, const TSet& s) // вывод
 {
     ostr << s.BitField;
     return ostr;
